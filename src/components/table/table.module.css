@@ -1,0 +1,55 @@
+.Table {
+  margin-bottom: 20px;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.TableInputs {
+  display: flex;
+}
+
+.TableColumn {
+  width: 5%;
+  border: 1px solid green;
+  padding-bottom: 4px;
+}
+
+.TableName {
+  text-align: center;
+  border-bottom: 1px solid green;
+}
+
+.TableName:nth-last-child(1) {
+  border-bottom: none;
+}
+
+.TableSpeed {
+  outline: 0;
+  border: none;
+  border-bottom: 1px solid grey;
+  border-align: center;
+  width: 80%;
+  text-align: center;
+}
+
+.TableSpeed::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  background: #0a377e;
+  margin: 0;
+}
+
+.TableSpeed[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.TableButton {
+  margin-top: 10px;
+  cursor: pointer;
+}

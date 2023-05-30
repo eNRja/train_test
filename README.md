@@ -1,1 +1,1 @@
-# train_test
+скачайте проект в терминале введите команду `npm install` затем `npm run start`
