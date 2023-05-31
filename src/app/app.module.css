@@ -2,8 +2,19 @@
   height: 100vh;
   weight: 100vw;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  overflow-y: scroll;
+  justify-content: center;
+  background: #cfcfcf;
+  overflow: hidden;
+}
+
+.AppLoader {
+  margin: 0;
+  padding-top: 100px;
+  height: 100vh;
+  weight: 100vw;
+  background: #cfcfcf;
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 34px;
+  text-align: center;
 }

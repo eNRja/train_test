@@ -1,6 +1,6 @@
 import { getApiTrains, postApiTrains } from "../../api/api";
 import { TAppDispatch } from "../../hooks/hooks";
-import { CLOSE_MODAL, GET_TRAINS, POST_TRAINS } from "../constants";
+import { CLOSE_MODAL, GET_TRAINS, POST_TRAINS, SHOW_TRAIN } from "../constants";
 import { TTrain } from "../reducers/table-trains";
 
 export interface ITrains {
@@ -17,7 +17,12 @@ export interface ICloseModal {
   readonly type: typeof CLOSE_MODAL;
 }
 
-export type TTrains = ITrains | IPostTrains | ICloseModal;
+export interface IShowTrain {
+  readonly type: typeof SHOW_TRAIN;
+  readonly payload: TTrain;
+}
+
+export type TTrains = ITrains | IPostTrains | ICloseModal | IShowTrain;
 
 export function getTrains() {
   return function (dispatch: TAppDispatch) {
@@ -32,7 +37,7 @@ export function getTrains() {
   };
 }
 
-export function postTrains(trainChangedSpeed: TTrain[]) {
+export function postTrains(trainChangedSpeed: any) {
   return function (dispatch: TAppDispatch) {
     postApiTrains(trainChangedSpeed)
       .then((result) => {
@@ -49,4 +54,11 @@ export function postTrains(trainChangedSpeed: TTrain[]) {
 
 export const closeModal = () => (dispatch: TAppDispatch) => {
   dispatch({ type: CLOSE_MODAL });
+};
+
+export const showTrain = (train: TTrain) => (dispatch: TAppDispatch) => {
+  dispatch({
+    type: SHOW_TRAIN,
+    payload: train,
+  });
 };

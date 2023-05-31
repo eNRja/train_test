@@ -1,4 +1,4 @@
-import { GET_TRAINS, POST_TRAINS, CLOSE_MODAL } from "../constants";
+import { GET_TRAINS, POST_TRAINS, CLOSE_MODAL, SHOW_TRAIN } from "../constants";
 
 export type TTrain = {
   description: string;
@@ -9,11 +9,13 @@ export type TTrain = {
 export type TTrainsState = {
   trains: TTrain[] | null;
   modalOpen: boolean;
+  train: TTrain | null;
 };
 
 export const initialState: TTrainsState = {
   trains: null,
   modalOpen: true,
+  train: null,
 };
 
 export const tableTrainsReducer = (
@@ -28,12 +30,18 @@ export const tableTrainsReducer = (
       };
     }
 
-    // По идее сюда должен уже приходить ответ от сервера
     case POST_TRAINS: {
       return {
         ...state,
         modalOpen: false,
-        trains: action.payload,
+        train: action.payload,
+      };
+    }
+
+    case SHOW_TRAIN: {
+      return {
+        ...state,
+        train: action.payload,
       };
     }
 

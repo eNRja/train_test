@@ -7,7 +7,7 @@ export async function getApiTrains() {
 }
 
 export async function postApiTrains(trainChangedSpeed: TTrain[]) {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   if (trainChangedSpeed) {
     return {success: true};
   } 

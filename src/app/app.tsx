@@ -2,8 +2,9 @@ import { useEffect } from "react";
 import style from "./app.module.css";
 import { getTrains } from "../services/actions/table-trains";
 import { useDispatch, useSelector } from "../hooks/hooks";
-import Table from "../components/table/table";
 import Modal from "../components/modal/modal";
+import TableTrains from "../components/tables/table-trains";
+import TableTrain from "../components/tables/table-train";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -14,13 +15,13 @@ export default function App() {
   }, [dispatch]);
 
   if (!trains) {
-    return <h2 className={style.App}>Загрузка...</h2>;
+    return <p className={style.AppLoader}>Загрузка...</p>;
   } else {
     return (
       <>
         <div className={style.App}>
-          <Table disabled={false} trains={trains} />
-          <Table disabled={true} trains={trains} />
+          <TableTrains />
+          <TableTrain />
         </div>
         <Modal />
       </>
